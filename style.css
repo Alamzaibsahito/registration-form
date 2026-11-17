@@ -19,7 +19,7 @@ h1 {
     font-size: 30px;
 }
 
-body > p {
+body>p {
     text-align: center;
     color: #666;
     margin-bottom: 25px;
@@ -80,6 +80,7 @@ textarea:focus {
     border-color: #2563eb;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
+
 textarea {
     resize: vertical;
     min-height: 100px;
@@ -92,13 +93,12 @@ input[type="checkbox"] {
     margin-right: 5px;
 }
 
-input[type="radio"] + label
-input[type="checkbox"] + label {
-margin-right: 12px;
-cursor:pointer;
+input[type="radio"]+label input[type="checkbox"]+label {
+    margin-right: 12px;
+    cursor: pointer;
 }
 
-input[type="file"]{
+input[type="file"] {
     width: 100px;
     padding: 8px;
     border-color: aqua;
@@ -108,7 +108,7 @@ input[type="file"]{
     cursor: pointer;
 }
 
-input[type="color"]{
+input[type="color"] {
     width: 55px;
     height: 40px;
     padding: 3px;
@@ -119,7 +119,7 @@ input[type="color"]{
 }
 
 
-button{
+button {
     padding: 11px 22px;
     background-color: rgb(150, 242, 211);
     border: none;
@@ -130,4 +130,25 @@ button{
     font-weight: bold;
     cursor: pointer;
     transition: background-color;
+}
+
+button[type="submit"] {
+    background-color: #b2b3c2;
+    color: #4f2bab;
+
+}
+
+button[type="submit"]:hover {
+    background-color: #8c87d4;
+    
+}
+
+
+button[type="reset"] {
+    background-color: #b2b3c2;
+    color: #4f2bab;
+}
+
+button[type="reset"]:hover {
+    background-color: #ada8ef;
 }

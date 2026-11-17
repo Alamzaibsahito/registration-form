@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Studenty Registration Form</title>
+  <title>Student Registration Form</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <h1>Student Registration Form</h1>
   <p>Fields marked with * are required.</p>
-  <form action="#" method="post" enctype="multipart/form-data">
+  <form id="regForm" action="#" method="post" enctype="multipart/form-data">
     <fieldset>
       <legend>Personal Information</legend>
       <p>
         <label for="fname">First Name *</label><br>
-        <input type="text" id="fname" name="first_name" placeholder="Enter Your First Name" required minlength="2" maxlength="30">
+        <input type="text" id="fname" name="first_name" placeholder="Enter your first name" required minlength="2"
+          maxlength="30">
       </p>
       <p>
         <label for="lname">Last Name *</label><br>
-        <input type="text" id="lname" name="last_name" placeholder="Enter Your Last Name" required minlength="2" maxlength="30">
+        <input type="text" id="lname" name="last_name" placeholder="Enter your last name" required minlength="2"
+          maxlength="30">
       </p>
       <p>
-        <label for="fathername">Father's Name</label><br>
-        <input type="text" id="fathername" name="father_name" placeholder="Enter Your Father Name" required>
+        <label for="fathername">Father's Name *</label><br>
+        <input type="text" id="fathername" name="father_name" placeholder="Enter your father's name" required>
       </p>
       <p>
         <label for="dob">Date of Birth *</label><br>
@@ -56,40 +60,42 @@
       </p>
       <p>
         <label for="phone">Mobile Number *</label><br>
-        <input type="tel" id="phone" name="phone" placeholder="03471638673" pattern="03[0-9]{9}"
-          title="Format: 03001234567" required>
+        <input type="tel" id="phone" name="phone" placeholder="03XXXXXXXXX" pattern="03[0-9]{9}"
+          title="Format: 03XXXXXXXXX" required>
       </p>
       <p>
         <label for="address">Address *</label><br>
         <textarea id="address" name="address" rows="4" cols="40" placeholder="House no, Street, Area"
           required></textarea>
       </p>
+
       <p>
         <label for="city">City *</label><br>
-        <input list="cities" id="city" name="city" placeholder="Select or type city" required>
-        <datalist id="cities">
-          <option value="Hyderabad">
-          <option value="Badin">
-          <option value="Matli">
-          <option value="Tando Ghulam Ali">
-          <option value="New Dumbalo">
-          <option value="Digri">
-          <option value="Lahore">
-          <option value="Karachi">
-          <option value="Islamabad">
-          <option value="Faisalabad">
-          <option value="Multan">
-          <option value="Peshawar">
-          <option value="Quetta">
-        </datalist>
+        <select id="city" name="city" required>
+          <option value="">-- Select City --</option>
+          <option value="Hyderabad">Hyderabad</option>
+          <option value="Badin">Badin</option>
+          <option value="Matli">Matli</option>
+          <option value="Tando Ghulam Ali">Tando Ghulam Ali</option>
+          <option value="New Dumbalo">New Dumbalo</option>
+          <option value="Digri">Digri</option>
+          <option value="Lahore">Lahore</option>
+          <option value="Karachi">Karachi</option>
+          <option value="Islamabad">Islamabad</option>
+          <option value="Faisalabad">Faisalabad</option>
+          <option value="Multan">Multan</option>
+          <option value="Peshawar">Peshawar</option>
+          <option value="Quetta">Quetta</option>
+        </select>
       </p>
+
       <p>
         <label for="country">Country *</label><br>
         <select id="country" name="country" required>
           <option value="">-- Select Country --</option>
           <option value="pk" selected>Pakistan</option>
           <option value="in">India</option>
-          <option value="uk">United Kingdom</option>
+          <option value="gb">United Kingdom</option>
           <option value="us">United States</option>
           <option value="other">Other</option>
         </select>
@@ -148,14 +154,15 @@
       <p>
         <label for="skill">Computer Skill Level (1-10)</label><br>
         <input type="range" id="skill" name="skill" min="1" max="10" value="5">
+        <output id="skillOut" for="skill">5</output>
       </p>
       <p>
         <label for="startdate">Preferred Start Date</label><br>
         <input type="date" id="startdate" name="start_date">
       </p>
       <p>
-        <label for="resume">Upload Result Card / Certificate (PDF)</label><br>
-        <input type="file" id="resume" name="certificate" accept=".pdf,.doc,.docx">
+        <label for="certificate">Upload Result Card / Certificate (PDF)</label><br>
+        <input type="file" id="certificate" name="certificate" accept=".pdf">
       </p>
     </fieldset>
     <br>
@@ -164,15 +171,17 @@
       <p>
         <label for="username">Username *</label><br>
         <input type="text" id="username" name="username" required minlength="4" maxlength="20" pattern="[A-Za-z0-9_]+"
-          title="Letters, numbers and underscore only">
+          title="Letters, numbers and underscore only" autocomplete="username">
       </p>
       <p>
         <label for="password">Password *</label><br>
-        <input type="password" id="password" name="password" required minlength="8" placeholder="Minimum 8 characters">
+        <input type="password" id="password" name="password" required minlength="8" placeholder="Minimum 8 characters"
+          autocomplete="new-password">
       </p>
       <p>
         <label for="cpassword">Confirm Password *</label><br>
-        <input type="password" id="cpassword" name="confirm_password" required minlength="8">
+        <input type="password" id="cpassword" name="confirm_password" required minlength="8"
+          autocomplete="new-password">
       </p>
       <p>
         <label for="color">Favourite Color</label><br>
@@ -196,5 +205,28 @@
     <button type="submit">Register</button>
     <button type="reset">Clear Form</button>
   </form>
+
+  <script>
+    var today = new Date().toISOString().split("T")[0];
+    document.getElementById("dob").max = today;
+    document.getElementById("startdate").min = today;
+
+    var skill = document.getElementById("skill");
+    var skillOut = document.getElementById("skillOut");
+    skill.addEventListener("input", function () {
+      skillOut.textContent = skill.value;
+    });
+
+    var pass = document.getElementById("password");
+    var cpass = document.getElementById("cpassword");
+    function checkMatch() {
+      cpass.setCustomValidity(
+        cpass.value && cpass.value !== pass.value ? "Passwords do not match" : ""
+      );
+    }
+    pass.addEventListener("input", checkMatch);
+    cpass.addEventListener("input", checkMatch);
+  </script>
 </body>
+
 </html>
